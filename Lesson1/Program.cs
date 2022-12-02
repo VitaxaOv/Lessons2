@@ -17,3 +17,15 @@ int number = int.Parse(Console.ReadLine());
 int result = number * number;
 
 Console.WriteLine(result);
+
+int i = 0;
+while(i< 5)
+{
+    i++;
+    Console.WriteLine("Lalal");
+}
+
+for (var i = 0; i < 5; i++)
+{
+    
+}
