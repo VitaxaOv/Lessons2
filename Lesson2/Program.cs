@@ -7,7 +7,7 @@ Random random = new Random();
 int randomNumber = random.Next(10,100);
 
 int lastDigit = randomNumber % 10;
-int firstDigit = randomNumber / 10 % 10;
+int firstDigit = randomNumber / 10;
 
 //double tmp = (double)randomNumber / 10;
 
