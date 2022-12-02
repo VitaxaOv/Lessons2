@@ -12,7 +12,7 @@ a = 25, b = 5 -> да a = 2, b = 10 -> нет a = 9, b = -3 -> да a = -3 b = 9
 3 -> Среда 5 -> Пятница
 */
 
-int number = int.Parse(Console.ReadLine());
+/*int number = int.Parse(Console.ReadLine());
 
 int result = number * number;
 
@@ -28,4 +28,4 @@ while(i< 5)
 for (var i = 0; i < 5; i++)
 {
     
-}
+}*/
