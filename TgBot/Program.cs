@@ -1,5 +1,6 @@
 ﻿
-//dotnet add package Telegram.Bot
+// dotnet add package Telegram.Bot
+// создать папку внутри проекта photos
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.InputFiles;
@@ -28,7 +29,7 @@ while (true)
 
             if (updates[i].Message.Text == "хочу гуся")
             {
-                StreamReader reader = new StreamReader("/Users/a2/RiderProjects/Lessons2/TgBot/photos/file_17.jpg");
+                StreamReader reader = new StreamReader("/Users/a2/RiderProjects/Lessons2/TgBot/photos/file_17.jpg");// укажите путь до файла
                 await client.SendPhotoAsync(updates[i].Message.From.Id, reader.BaseStream);
             }
 
@@ -36,7 +37,7 @@ while (true)
             {
                 for (var j = 0; j < users.Count(); j++)
                 {
-                    StreamReader reader = new StreamReader("/Users/a2/RiderProjects/Lessons2/TgBot/photos/file_17.jpg");
+                    StreamReader reader = new StreamReader("/Users/a2/RiderProjects/Lessons2/TgBot/photos/file_17.jpg");// укажите путь до файла
                     await client.SendPhotoAsync(users[j].Item1, reader.BaseStream);
                 }
             }
@@ -52,7 +53,7 @@ while (true)
             if (updates[i].Message.Text.Contains("SEND_PERSONAL"))
             {
                 var strs = updates[i].Message.Text.Split(" ");
-                StreamReader reader = new StreamReader("/Users/a2/RiderProjects/Lessons2/TgBot/photos/file_17.jpg");
+                StreamReader reader = new StreamReader("/Users/a2/RiderProjects/Lessons2/TgBot/photos/file_17.jpg"); // укажите путь до файла
                 await client.SendPhotoAsync(strs[1], reader.BaseStream);
                 //client.SendVideoAsync()
             }
@@ -68,12 +69,12 @@ while (true)
                 //var file  = await Telegram.Bot.TelegramBotClientExtensions.GetFileAsync(client,photos[j].FileId);
                 var file = await client.GetFileAsync(photos[j].FileId);
 
-                using (var saveImageStream = new FileStream($"/Users/a2/RiderProjects/Lessons2/TgBot/{file.FilePath}", FileMode.OpenOrCreate))
+                using (var saveImageStream = new FileStream($"./{file.FilePath}", FileMode.OpenOrCreate))
                 {
                     Console.WriteLine(file.FilePath);
                     await client.DownloadFileAsync(file.FilePath, saveImageStream);
                     var sendingFile = new InputOnlineFile(saveImageStream);
-                    StreamReader reader = new StreamReader($"/Users/a2/RiderProjects/Lessons2/TgBot/{file.FilePath}");
+                    StreamReader reader = new StreamReader($"./{file.FilePath}");
 
                     //Thread.Sleep(1500);
                     await client.SendPhotoAsync(updates[i].Message.From.Id, reader.BaseStream);
