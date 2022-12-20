@@ -9,6 +9,9 @@
 // b = tmp;
 int[] array = new int[5] { 1, 2, 3, 4, 5 };
 
+//Console.BackgroundColor = ConsoleColor.White;
+Console.ForegroundColor = ConsoleColor.Green;
+
 int[] tmp = new int[array.Length];
 Array.Copy(array, tmp, array.Length);
 Reverse(array);
